@@ -62,7 +62,23 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
+        'oracle' => [
+    'driver' => 'oracle',
+    'tns' =>
+    "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1521))
+    (CONNECT_DATA=(SERVICE_NAME=XEPDB1)))",
 
+    'host' => env('DB_HOST', '127.0.0.1'),
+    'port' => env('DB_PORT', '1521'),
+    'database' => env('DB_DATABASE', 'XEPDB1'),
+
+    'username' => env('DB_USERNAME', 'PFE_APP'),
+    'password' => env('DB_PASSWORD', 'pfe123'),
+
+    'charset' => 'AL32UTF8',
+    'prefix' => '',
+    'prefix_schema' => '',
+],
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
